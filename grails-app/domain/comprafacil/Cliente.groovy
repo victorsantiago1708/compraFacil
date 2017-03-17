@@ -7,7 +7,7 @@ class Cliente {
     String telefone
     String email
 
-    //static belongsTo = [usuario: Usuario]
+    static belongsTo = [usuario: Usuario]
 
     static constraints = {
     }
