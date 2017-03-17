@@ -25,7 +25,7 @@ import org.springframework.security.authentication.DisabledException
 import org.springframework.security.authentication.LockedException
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.context.SecurityContextHolder
-import grails.web.api.WebAttributes
+import org.springframework.security.web.WebAttributes
 
 import javax.servlet.http.HttpServletResponse
 
