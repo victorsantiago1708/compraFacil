@@ -8,6 +8,7 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asset:stylesheet src="application.css"/>
+    <asset:stylesheet src="bootstrap-3.3.7-dist/css/bootstrap.css"/>
     <g:layoutHead/>
 </head>
 <body>
@@ -16,5 +17,6 @@
         <g:message code="spinner.alt" default="Loading&hellip;"/>
     </div>
     <asset:javascript src="application.js"/>
+    <asset:javascript src="bootstrap-3.3.7-dist/js/bootstrap.js"/>
 </body>
 </html>

@@ -12,5 +12,8 @@
 
 <body>
     <h1>Bem-vindo!</h1>
+    <g:form controller="logout">
+        <g:submitButton name="logout" value="Logout" />
+    </g:form>
 </body>
 </html>
