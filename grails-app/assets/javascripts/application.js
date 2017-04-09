@@ -8,13 +8,17 @@
 //= require jquery-2.2.0.min
 //= require_tree .
 //= require_self
+//= require materialize/js/materialize
 
 if (typeof jQuery !== 'undefined') {
     (function($) {
         $(document).ajaxStart(function() {
-            $('#spinner').fadeIn();
+            $('.load').fadeIn();
         }).ajaxStop(function() {
-            $('#spinner').fadeOut();
+            $('.load').fadeOut();
         });
     })(jQuery);
+
 }
+
+
