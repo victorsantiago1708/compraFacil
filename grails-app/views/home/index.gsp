@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <h1>Bem-vindo!</h1>
+    <h1>Bem-vindo!</h1><h3> ${user?.username}</h3>
     <g:form controller="logout">
         <g:submitButton name="logout" value="Logout" />
     </g:form>

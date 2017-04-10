@@ -11,6 +11,7 @@
     <asset:stylesheet src="application.css"/>
     <asset:stylesheet src="font-awesome-4.7.0/css/font-awesome.css"/>
     <asset:stylesheet src="materialize/css/materialize.css"/>
+    <asset:stylesheet src="sweetalert-master/dist/sweetalert.css"/>
     <g:layoutHead/>
 </head>
 <body>
@@ -28,12 +29,10 @@
             </div>
         </div>
     </div>
-    <div id="spinner" class="spinner" >
-
-        <g:message code="spinner.alt" default="Loading&hellip;"/>
-    </div>
+    <input type="hidden" id="erroSwall" value="${message(code:'default.swall.error.label')}"/>
     <asset:javascript src="application.js"/>
     <asset:javascript src="materialize/js/materialize.js"/>
+    <asset:javascript src="sweetalert-master/dist/sweetalert-dev.js"/>
     <script>
         $(document).ready(function() {
             Materialize.updateTextFields();

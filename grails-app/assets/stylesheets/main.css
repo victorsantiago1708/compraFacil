@@ -588,3 +588,19 @@ img.grails-logo {
     left:45%;
     top:45%;
 }
+
+#loginBody{
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/login_background.gif);
+    background-size: cover; /* size the background image at 100% like any responsive img tag */
+    background-position: top center;
+    background-repeat:no-repeat;
+
+}
+
+#login{
+    color: black;
+    position: fixed;
+    background: rgba(255, 255, 250, 0.78);
+}
