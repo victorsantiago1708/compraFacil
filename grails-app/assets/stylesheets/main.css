@@ -584,23 +584,38 @@ img.grails-logo {
     z-index: 999999;
 }
 .load > .preloader-wrapper{
-    position: absolute;
-    left:45%;
+    position: relative;
     top:45%;
 }
 
 #loginBody{
     width: 100%;
     height: 100%;
-    background-image: url(../images/login_background.gif);
+    background-image: url(../images/ecommerce.jpg);
     background-size: cover; /* size the background image at 100% like any responsive img tag */
     background-position: top center;
     background-repeat:no-repeat;
 
 }
 
-#login{
+#loginForm{
+    padding:10px;
     color: black;
+    background: rgba(234, 238, 236, 0.81);
+}
+
+.titulo{
+    font-weight: bold;
+    color: #55b2e3;
+    text-transform: uppercase;
+    font-style: italic;
+    text-shadow: 0 0 3px black;
+}
+
+.filter{
     position: fixed;
-    background: rgba(255, 255, 250, 0.78);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: rgba(95, 172, 200, 0.5);
 }

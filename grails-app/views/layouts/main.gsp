@@ -16,7 +16,7 @@
 </head>
 <body>
     <g:layoutBody/>
-    <div class="load" style="display: none">
+    <div class="load center" style="display: none">
         <div class="preloader-wrapper big active">
             <div class="spinner-layer spinner-blue-only">
                 <div class="circle-clipper left">

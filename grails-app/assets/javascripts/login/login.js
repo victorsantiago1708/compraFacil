@@ -5,6 +5,7 @@ var logar;
 
 window.onload = function(){
     $(document).delegate("#logar","click", logar);
+    $(document).delegate("#password", "keyup", function(e){ if(e.keyCode==13){ logar(); } })
 };
 
 logar = function(){

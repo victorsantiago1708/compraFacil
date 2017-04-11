@@ -9,18 +9,18 @@
     <asset:javascript src="login/login.js"/>
 </head>
 <body >
+    <div class="filter"></div>
     <div id="loginBody">
     <input type="hidden" id="erroLoginDadosInvalidos" value="${message(code:'login.erroLoginDadosInvalidos.message')}"/>
     <div class="container">
-        <div class="row" id="login" style="left: 29%; width: 42%; top: 10%;">
-            <div class="col s12">
-                <div class="row">
-                    <div class="col s12">
-                        <h3><g:message code='login.login.label'/></h3>
-                    </div>
-                </div>
-                <form id="loginForm" class="cssform" autocomplete="off">
-
+        <div class="row">
+            <div class="col s12 center">
+                <h1 class="titulo">Compra Fácil</h1>
+            </div>
+        </div>
+        <div class="row" id="login">
+            <div class="col s12 offset-s3">
+                <form id="loginForm" class="col s6" autocomplete="off">
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">account_circle</i>
