@@ -1,7 +1,7 @@
 package comprafacil
 
 import grails.plugin.springsecurity.SpringSecurityService
-import org.springframework.security.access.annotation.Secured
+import grails.plugin.springsecurity.annotation.Secured
 
 @Secured('ROLE_ADMIN')
 class HomeController {

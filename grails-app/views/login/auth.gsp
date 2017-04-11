@@ -9,18 +9,20 @@
     <asset:javascript src="login/login.js"/>
 </head>
 <body >
+    <div id="loginBody" class="col s12">
     <div class="filter"></div>
-    <div id="loginBody">
     <input type="hidden" id="erroLoginDadosInvalidos" value="${message(code:'login.erroLoginDadosInvalidos.message')}"/>
     <div class="container">
         <div class="row">
             <div class="col s12 center">
-                <h1 class="titulo">Compra Fácil</h1>
+                <h1 class="titulo"><g:message code='comprafacil.label'/></h1>
             </div>
         </div>
         <div class="row" id="login">
             <div class="col s12 offset-s3">
+
                 <form id="loginForm" class="col s6" autocomplete="off">
+                    <h3 class="loginLabel center"><g:message code="login.login.label"/></h3>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">account_circle</i>
@@ -38,9 +40,12 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                             <input type="checkbox" class="chk" name="${rememberMeParameter ?: 'remember-me'}" id="remember_me" <g:if test='${hasCookie}'>checked="checked"</g:if>/>
                             <label for="remember_me"><g:message code='springSecurity.login.remember.me.label'/></label>
+                        </div>
+                        <div class="input-field col s6">
+                            <a href="/cadastro" class="labelSpace"><g:message code="default.registrarme.label"/></a>
                         </div>
                     </div>
 
