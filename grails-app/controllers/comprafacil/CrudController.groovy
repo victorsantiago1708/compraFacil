@@ -10,14 +10,21 @@ class CrudController {
         Usuario user = Usuario.read(springSecurityService.currentUser.id)
         model.put("user", user)
         model.put("tipoUsuario", user?.authorities?.authority)
-        list()
+        list(model)
     }
 
-    def list(){
+    def list(model){
         if(entity){
-            println(Produto.findAll())
-//            def result = entity.createCriteria().list() {query}
-//            println(result)
+            def result = entity.createCriteria().list(query)
+            def entityList = result
+            def entityListCount = entityList?.size()
+
+            model.put("entityList", entityList)
+            model.put("entityListCount", entityListCount)
+
+            render(view: 'index', model: model)
         }
+
+
     }
 }
