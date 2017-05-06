@@ -9,5 +9,6 @@ class Produto {
     static belongsTo = [fabricante: Fabricante]
 
     static constraints = {
+        fabricante nullable: true
     }
 }

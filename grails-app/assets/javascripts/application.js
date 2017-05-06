@@ -21,4 +21,7 @@ if (typeof jQuery !== 'undefined') {
 
 }
 
+$(document).ready(function () {
+    $(".button-collapse").sideNav();
+});
 

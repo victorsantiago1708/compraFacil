@@ -6,6 +6,7 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'comprafacil.Us
 grails.plugin.springsecurity.authority.className = 'comprafacil.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/login/auth',     access: ['permitAll']],
+	[pattern: '/produto/**',     access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
 	[pattern: '/index',          access: ['permitAll']],
 	[pattern: '/index.gsp',      access: ['permitAll']],

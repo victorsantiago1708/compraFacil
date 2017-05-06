@@ -4,13 +4,14 @@ import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured('ROLE_ADMIN')
-class HomeController {
+class HomeController{
     SpringSecurityService springSecurityService
-
-    def index() {
+    
+    def index(){
         def model = [:]
         Usuario user = Usuario.read(springSecurityService.currentUser.id)
         model.put("user", user)
-        render(view:"index", model: model)
+        model.put("tipoUsuario", user?.authorities?.authority)
+        render(template: "index", model: model)
     }
 }

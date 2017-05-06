@@ -1,6 +1,4 @@
-/**
- * Created by Administrador on 09/04/2017.
- */
+
 var logar;
 
 window.onload = function(){
@@ -16,14 +14,14 @@ logar = function(){
             data: {username: $("#username").val(), password: $("#password").val(), 'remember-me': $("#remember_me").val()},
             type: "POST",
             success: function(data){
-                if(typeof data.error != 'undefined'){
+                if(typeof(data.error) != 'undefined'){
                     swal({
                         title: $("#erroSwall").val(),
                         text: data.error,
                         type: "error",
                         confirmButtonText: "Ok"
                     });
-                }else if(typeof data.success != 'undefined'){
+                }else if(typeof(data.success) != 'undefined'){
                     window.location = "/home";
                 }
             },

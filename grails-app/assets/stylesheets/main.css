@@ -574,7 +574,7 @@ img.grails-logo {
 }
 
 .load{
-    position: absolute;
+    position: fixed;
     left:0;
     top:0;
     background: #202020;
@@ -584,7 +584,6 @@ img.grails-logo {
     z-index: 999999;
 }
 .load > .preloader-wrapper{
-    position: relative;
     top:45%;
 }
 
@@ -607,12 +606,13 @@ img.grails-logo {
 .titulo{
     font-weight: bold;
     color: #fffffa;
+    text-shadow: 2px 2px #55b2e3;
     text-transform: uppercase;
-    text-shadow: 0 0 4px black;
 }
 
 .loginLabel{
-    color: #0e0e0e;
+    color: #fffffa;
+    text-shadow: 2px 2px #55b2e3;
     text-transform: capitalize;
 }
 
@@ -626,4 +626,26 @@ img.grails-logo {
 
 .labelSpace{
     vertical-align: -12px;
+}
+
+.input-field label{
+    color: #fbfbfb;
+}
+
+.link{
+    border:none;
+    background: transparent;
+    color: white;
+}
+
+.link:hover{
+    color:inherit;
+}
+
+nav{
+    background-color: rgba(47, 143, 212, 0.95)!important;
+}
+
+nav ul li a:hover{
+    color: rgba(43, 164, 241, 0.95);
 }

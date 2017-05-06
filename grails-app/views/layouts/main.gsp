@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <asset:link rel="icon" href="compraFacilFavIcon.ico" type="image/x-ico" />
     <title>
         <g:layoutTitle default="Grails"/>
     </title>
