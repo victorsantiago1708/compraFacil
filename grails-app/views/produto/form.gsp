@@ -26,6 +26,25 @@
                     </button>
                 </div>
             </div>
+            <div class="row nopad">
+                <div class="input-field col s3">
+                    <input id="nome" name="nome" type="text" >
+                    <label for="nome"><g:message code="produto.nome.label"/> </label>
+                </div>
+                <div class="input-field col s3">
+                    <input id="descricao" name="descricao" type="text" >
+                    <label for="descricao"><g:message code="produto.descricao.label"/> </label>
+                </div>
+                <div class="input-field col s3 m3">
+                    <select name="fabricante" id="fabricante" class="icons">
+                        <option value="" disabled selected><g:message code="default.selecione.label"/></option>
+                        <g:each in="${fabricantes}" var="fabricante">
+                            <option value="${fabricante?.id}" data-icon="images/sample-1.jpg" class="circle">${fabricante?.nome}</option>
+                        </g:each>
+                    </select>
+                    <label><g:message code="produto.fabricante.label"/> </label>
+                </div>
+            </div>
         </g:form>
     </div>
 </body>

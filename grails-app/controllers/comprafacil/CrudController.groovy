@@ -57,6 +57,11 @@ class CrudController {
         return model
     }
 
+    def editaModelDoSave( def model ){
+        model = editaModelPadrao(model)
+        return model
+    }
+
     def beforeList (){
 
     }
@@ -89,7 +94,7 @@ class CrudController {
         }
 
         model.put('entityInstance', entity.newInstance())
-
+        model = editaModelDoSave(model)
         render view: "form", model: model
     }
 }
