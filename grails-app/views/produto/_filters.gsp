@@ -4,7 +4,7 @@
             <g:message code="default.busca.label"/> <span >|</span> <g:message code="produto.label"/>
         </h1>
     </div>
-    <div class="col s3 right-align">
+    <div class="col s3 center-align">
         <a style="margin-top:25%;" class="waves-effect waves-light btn blue lighten-1" href="${createLink(controller: 'produto', action: 'novo')}"><g:message code="default.novo.label"/></a>
     </div>
 </div>

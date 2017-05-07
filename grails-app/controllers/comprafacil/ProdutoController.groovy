@@ -22,4 +22,11 @@ class ProdutoController extends CrudController{
         return model
     }
 
+    def editaModelDoNovo( def model ){
+        List<Fabricante> fabricantes = Fabricante.findAll()
+        model.put("fabricantes",fabricantes)
+        model = editaModelPadrao(model)
+        return model
+    }
+
 }
