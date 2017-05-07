@@ -1,13 +1,15 @@
-<div class="row" style="border-bottom: 1px solid #ccc;">
-    <div class="col s12">
+<div class="row nopad" style="border-bottom: 1px solid #ccc;">
+    <div class="col s9">
         <h1>
             <g:message code="default.busca.label"/> <span >|</span> <g:message code="produto.label"/>
-            <a style="" class="btn-floating btn-large waves-effect waves-light  blue lighten-1 right-align" href="${createLink(controller: 'produto', action: 'novo')}"><i style="display:block" class="material-icons">add</i></a>
         </h1>
+    </div>
+    <div class="col s3 right-align">
+        <a style="margin-top:25%;" class="waves-effect waves-light btn blue lighten-1" href="${createLink(controller: 'produto', action: 'novo')}"><g:message code="default.novo.label"/></a>
     </div>
 </div>
 <g:form name="myForm" url="[action:'list',controller:'produto']" class="col s12">
-    <div class="row">
+    <div class="row nopad">
         <div class="input-field col s3">
             <input id="nome" name="nome" type="text" >
             <label for="nome"><g:message code="produto.nome.label"/> </label>
@@ -27,7 +29,7 @@
         </div>
         <div class="col s3">
             <label class="labelSpace"> &nbsp; </label>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Pesquisar
+            <button class="btn waves-effect waves-light blue lighten-1" type="submit" name="action">Pesquisar
                 <i class="material-icons right">search</i>
             </button>
         </div>

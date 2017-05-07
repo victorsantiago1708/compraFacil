@@ -221,12 +221,12 @@ label {
     margin: 0 0.25em 0 0;
 }
 
-input, select, textarea {
-    background-color: #fcfcfc;
-    border: 1px solid #cccccc;
-    font-size: 1em;
-    padding: 0.2em 0.4em;
-}
+/*input, select, textarea {*/
+/*background-color: #fcfcfc;*/
+/*border: 1px solid #cccccc;*/
+/*font-size: 1em;*/
+/*padding: 0.2em 0.4em;*/
+/*}*/
 
 select {
     padding: 0.2em 0.2em 0.2em 0;
@@ -643,6 +643,14 @@ img.grails-logo {
 
 .link:hover{
     color:inherit;
+    background-color: inherit;
+    border: none;
+}
+
+.link:active{
+    color:inherit;
+    background-color: inherit;
+    border: none;
 }
 
 nav{
@@ -657,9 +665,10 @@ nav ul li a:hover{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-
-
 }
 
+.nopad{
+    padding: 0px;
+}
 
 

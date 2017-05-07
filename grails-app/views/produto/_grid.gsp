@@ -1,6 +1,6 @@
 <g:render template="filters"/>
-<div class="row">
-    <table class="striped">
+<div class="row nopad">
+    <table class="striped ">
         <thead>
             <tr>
                 <th>

@@ -1,7 +1,7 @@
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo"><g:message code="comprafacil.label"/> </a>
+            <a href="${createLink(controller: "home", action: "index")}" class="brand-logo"><g:message code="comprafacil.label"/> </a>
             <ul class="left hide-on-med-and-down" style="margin-left: 250px;">
                 <g:if test="${tipoUsuario.contains("ROLE_ADMIN")}">
                     <li><a href="${createLink(controller: "produto", action: "index")}" style="text-transform: capitalize"><g:message code="menu.item.produtos.label"/></a></li>

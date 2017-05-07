@@ -117,13 +117,13 @@ a.navbar-brand {
     height: 400px;
 }
 
-.svg #band {
-    background-image: url(../img/grails-cupsonly-logo-white.svg);
-}
+/*.svg #band {*/
+    /*background-image: url(../img/grails-cupsonly-logo-white.svg);*/
+/*}*/
 
-.no-svg #band {
-    background-image: url(../img/groovy-logo-white.png);
-}
+/*.no-svg #band {*/
+    /*background-image: url(../img/groovy-logo-white.png);*/
+/*}*/
 
 @media (max-width: 1010px) {
     #band {
@@ -233,12 +233,12 @@ a.navbar-brand {
     float: right;
 }
 
-@media (max-width: 1010px) {
-    .event-logo {
-        height: ;
-    }
+/*@media (max-width: 1010px) {*/
+    /*.event-logo {*/
+        /*height: ;*/
+    /*}*/
 
-}
+/*}*/
 
 @media (max-width: 690px) {
     .event-logo {
@@ -380,15 +380,15 @@ body, html {
     font-size: 14px;
 }
 
-a {
-    color: #db4800;
-    text-decoration: underline;
-}
+/*a {*/
+/*color: #db4800;*/
+/*text-decoration: underline;*/
+/*}*/
 
-a:hover {
-    color: #db4800;
-    text-decoration: none
-}
+/*a:hover {*/
+/*color: #db4800;*/
+/*text-decoration: none*/
+/*}*/
 
 h1 {
     font-size: 2.125em;
@@ -623,15 +623,15 @@ h8 {
     clear: both
 }
 
-#content .colset-2-its article .icon {
-    display: block;
-    width: 80px;
-    height: 80px;
-    background-image: url(../img/icons-colset-2-its.png);
-    float: left;
-    margin-top: 12px;
-    margin-right: 15px
-}
+/*#content .colset-2-its article .icon {*/
+    /*display: block;*/
+    /*width: 80px;*/
+    /*height: 80px;*/
+    /*background-image: url(../img/icons-colset-2-its.png);*/
+    /*float: left;*/
+    /*margin-top: 12px;*/
+    /*margin-right: 15px*/
+/*}*/
 
 #content .colset-2-its article .icon.icon-1 {
     background-position: 0 0
