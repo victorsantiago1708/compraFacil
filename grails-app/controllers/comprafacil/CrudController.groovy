@@ -6,14 +6,12 @@ class CrudController {
     SpringSecurityService springSecurityService
 
     def index(){
-        def model = [:]
-        Usuario user = Usuario.read(springSecurityService.currentUser.id)
-        model.put("user", user)
-        model.put("tipoUsuario", user?.authorities?.authority)
-        list(model)
+
+        list()
     }
 
-    def list(model){
+    def list(){
+        def model = beforeList()
         if(entity){
             def result = entity.createCriteria().list(query)
             def entityList = result
@@ -21,10 +19,14 @@ class CrudController {
 
             model.put("entityList", entityList)
             model.put("entityListCount", entityListCount)
-
+            println (model)
             render(view: 'index', model: model)
         }
 
+
+    }
+
+    def beforeList (){
 
     }
 }

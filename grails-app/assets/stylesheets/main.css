@@ -214,6 +214,7 @@ fieldset,
     margin-left: 27%;
 }
 
+
 label {
     cursor: pointer;
     display: inline-block;
@@ -367,7 +368,7 @@ input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
 }
 
 /* TABLES */
-
+/*
 table {
     border-top: 1px solid #DFDFDF;
     border-collapse: collapse;
@@ -448,7 +449,7 @@ th.desc a {
 th:hover, tr:hover {
     background: #79b94c;
 }
-
+*/
 /* PAGINATION */
 
 .pagination {
@@ -626,7 +627,9 @@ img.grails-logo {
 
 .labelSpace{
     vertical-align: -12px;
+    display:block!important;
 }
+.labelSpace:after{content:""!important; display:block!important; clear:both!important;}
 
 .input-field label{
     color: #fbfbfb;
@@ -649,3 +652,14 @@ nav{
 nav ul li a:hover{
     color: rgba(43, 164, 241, 0.95);
 }
+
+.row{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+}
+
+
+
