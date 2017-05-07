@@ -9,6 +9,14 @@ class CrudController {
         list()
     }
 
+    def getEntityInstance(){
+        if(params.id){
+            return entity.get( params.id )
+        }else{
+            return entity.newInstance()
+        }
+    }
+
     def list(){
         def model = beforeList()
         if(entity){
@@ -49,6 +57,8 @@ class CrudController {
 
     def novo(){
         def model = [:]
+        def entityInstance = getEntityInstance()
+        model.put('entityInstance', entityInstance)
         model = editaModelDoNovo(model)
         render view: 'form', model: model
     }
