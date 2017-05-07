@@ -51,15 +51,28 @@ class CrudController {
         return model
     }
 
+    def editaModelDoEdit( def model ){
+        model = editaModelPadrao(model)
+        return model
+    }
+
     def beforeList (){
 
     }
 
     def novo(){
         def model = [:]
-        def entityInstance = getEntityInstance()
+        def entityInstance = entity.newInstance()
         model.put('entityInstance', entityInstance)
         model = editaModelDoNovo(model)
         render view: 'form', model: model
+    }
+
+    def edit(){
+        def model = [:]
+        def entityInstance = entity.get(params.id)
+        model.put('entityInstance', entityInstance)
+        model = editaModelDoEdit(model)
+        render view: "form", model: model
     }
 }
