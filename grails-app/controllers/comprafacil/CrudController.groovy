@@ -1,6 +1,7 @@
 package comprafacil
 
 import grails.plugin.springsecurity.SpringSecurityService
+import org.h2.mvstore.db.TransactionStore
 
 class CrudController {
     SpringSecurityService springSecurityService
@@ -73,6 +74,22 @@ class CrudController {
         def entityInstance = entity.get(params.id)
         model.put('entityInstance', entityInstance)
         model = editaModelDoEdit(model)
+        render view: "form", model: model
+    }
+
+    def save(){
+        def entityInstance = getEntityInstance()
+        def model = [:]
+
+        if(entityInstance.validate() && entityInstance.getErrorCount() == 0){
+            entityInstance.save(failOnError: true)
+        }else{
+            flash.message = message(code: 'default.cantSave.message')
+            println("error")
+        }
+
+        model.put('entityInstance', entity.newInstance())
+
         render view: "form", model: model
     }
 }
