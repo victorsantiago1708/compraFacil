@@ -26,11 +26,19 @@ class CrudController {
 
     }
 
+    def editaModelDoNovo( def model ){
+
+    }
+
+    def editaModelDoList( def model ){
+
+    }
+
     def beforeList (){
 
     }
 
     def novo(){
-
+        render template: 'form'
     }
 }

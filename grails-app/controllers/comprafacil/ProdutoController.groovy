@@ -24,8 +24,4 @@ class ProdutoController extends CrudController{
         return model
     }
 
-    def novo(){
-        render template: 'form'
-    }
-
 }
