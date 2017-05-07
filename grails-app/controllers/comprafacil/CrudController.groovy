@@ -6,7 +6,6 @@ class CrudController {
     SpringSecurityService springSecurityService
 
     def index(){
-
         list()
     }
 
@@ -19,19 +18,29 @@ class CrudController {
 
             model.put("entityList", entityList)
             model.put("entityListCount", entityListCount)
-            println (model)
+            model = editaModelDoList(model)
             render(view: 'index', model: model)
         }
 
 
     }
 
-    def editaModelDoNovo( def model ){
+    def editaModelPadrao( def model ){
+        Usuario user = Usuario.read(springSecurityService.currentUser.id)
+        model.put("user", user)
+        model.put("tipoUsuario", user?.authorities?.authority)
 
+        return model
+    }
+
+    def editaModelDoNovo( def model ){
+        model = editaModelPadrao(model)
+        return model
     }
 
     def editaModelDoList( def model ){
-
+        model = editaModelPadrao(model)
+        return model
     }
 
     def beforeList (){
@@ -39,6 +48,8 @@ class CrudController {
     }
 
     def novo(){
-        render template: 'form'
+        def model = [:]
+        model = editaModelDoNovo(model)
+        render view: 'form', model: model
     }
 }

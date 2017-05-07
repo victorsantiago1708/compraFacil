@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="pt-br" class="no-js">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <asset:link rel="icon" href="compraFacilFavIcon.ico" type="image/x-ico" />
     <title>
-        <g:layoutTitle default="Grails"/>
+        <g:layoutTitle default="Compra Fácil"/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asset:stylesheet src="application.css"/>
@@ -32,11 +32,12 @@
     </div>
     <input type="hidden" id="erroSwall" value="${message(code:'default.swall.error.label')}"/>
     <asset:javascript src="application.js"/>
-    <asset:javascript src="materialize/js/materialize.js"/>
     <asset:javascript src="sweetalert-master/dist/sweetalert-dev.js"/>
+    <asset:javascript src="materialize/js/materialize.js"/>
     <script>
         $(document).ready(function() {
             Materialize.updateTextFields();
+            $(".button-collapse").sideNav();
         });
     </script>
 </body>

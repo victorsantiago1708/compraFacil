@@ -8,7 +8,6 @@
 //= require jquery-2.2.0.min
 //= require_tree .
 //= require_self
-//= require materialize/js/materialize
 
 if (typeof jQuery !== 'undefined') {
     (function($) {
@@ -20,8 +19,4 @@ if (typeof jQuery !== 'undefined') {
     })(jQuery);
 
 }
-
-$(document).ready(function () {
-    $(".button-collapse").sideNav();
-});
 

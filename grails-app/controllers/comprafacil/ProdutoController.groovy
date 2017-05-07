@@ -18,9 +18,7 @@ class ProdutoController extends CrudController{
         def model=[:]
         List<Fabricante> fabricantes = Fabricante.findAll()
         model.put("fabricantes",fabricantes)
-        Usuario user = Usuario.read(springSecurityService.currentUser.id)
-        model.put("user", user)
-        model.put("tipoUsuario", user?.authorities?.authority)
+
         return model
     }
 
