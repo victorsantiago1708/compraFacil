@@ -29,4 +29,8 @@ class CrudController {
     def beforeList (){
 
     }
+
+    def novo(){
+
+    }
 }

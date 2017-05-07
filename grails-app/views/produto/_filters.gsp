@@ -2,6 +2,7 @@
     <div class="col s12">
         <h1>
             <g:message code="default.busca.label"/> <span >|</span> <g:message code="produto.label"/>
+            <a style="" class="btn-floating btn-large waves-effect waves-light  blue lighten-1 right-align" href="${createLink(controller: 'produto', action: 'novo')}"><i style="display:block" class="material-icons">add</i></a>
         </h1>
     </div>
 </div>
