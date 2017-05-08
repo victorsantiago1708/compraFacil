@@ -4,7 +4,7 @@ import grails.plugin.springsecurity.SpringSecurityService
 
 class CrudController{
     SpringSecurityService springSecurityService
-    CrudService crudService
+    def sessionFactory
 
     def index(){
         list()
@@ -67,20 +67,26 @@ class CrudController{
 
     }
 
-    def novo(){
-        def model = [:]
-        def entityInstance = entity.newInstance()
-        model.put('entityInstance', entityInstance)
-        model = editaModelDoNovo(model)
-        render view: 'form', model: model
+    def novo() {
+        flash.clear()
+        def filters = params
+        def offset = params.offset
+        def model = [entityInstance: entity.newInstance(params)]
+
+        model = editaModelDoNovo( model )
+
+        render( template: "form", layout: "ajax" , model: model, filters: filters, offset: offset )
     }
 
-    def edit(){
-        def model = [:]
+    def edit() {
+        flash.clear()
         def entityInstance = entity.get(params.id)
-        model.put('entityInstance', entityInstance)
-        model = editaModelDoEdit(model)
-        render view: "form", model: model
+        def offset = params.offset
+        def model = [entityInstance: entityInstance, offset: offset]
+
+        model = editaModelDoEdit( model )
+
+        render(template: "form", layout: "ajax", model: model )
     }
 
     def delete(){
@@ -95,23 +101,63 @@ class CrudController{
         redirect(controller: entity, action: "list")
     }
 
-    def save(){
-        def entityInstance = getEntityInstance()
+    def save() {
+        flash.clear();
         def model = [:]
+        def entityInstance
+        boolean edit = params.id ? true:false
+        boolean editPai = params.editPai ? true:false
+        entityInstance = getEntityInstance()
 
-        try {
-            if(entityInstance.validate()){
-                if(entityInstance.save(failOnError: true, flush:true)){
-                    flash.message = message(code: 'default.saveSuccess.message')
+        if( edit && entityInstance.hasProperty( 'isEditavel' ) && entityInstance.isEditavel == false )
+        {
+            flash.error = message( code: 'default.dont.edit.message' )
+        }
+        else
+        {
+            beforeSave( entityInstance, model )
+            if( entityInstance.errors.getErrorCount() < 1 && entityInstance.validate() )
+            {
+                if (entityInstance.save(flush: true)) {
+                    afterSave(entityInstance, model)
+                    if(edit){
+                        flash.message = message(code: 'default.updated.message')
+                    }else{
+                        flash.message = message(code: 'default.created.message')
+                    }
+                }else{
+                    if(edit){
+                        flash.error = message(code: 'default.dont.updated.message')
+                    }else{
+                        flash.error = message(code: 'default.dont.created.message')
+                    }
                 }
-            }else{
-                flash.message = message(code: 'default.cantSave.message')
-                println("error")
             }
-        }catch (Exception e){
-            flash.message = message(code: 'default.cantSave.message')
+            else{
+                afterInvalido( entityInstance, model )
+            }
         }
 
-        redirect(controller: entity, action: "novo")
+        println entityInstance.errors
+
+        model = editaModelDoSave( model )
+
+        returnSave( edit, editPai, entityInstance, model)
     }
+
+    def returnSave(boolean edit, boolean editPai,def entityInstance, LinkedHashMap model) {
+        if (!((edit || editPai) || !entityInstance.validate())) {
+            entityInstance = entity.newInstance()
+        }
+        model.put('entityInstance', entityInstance)
+        def offset = params.offset
+        if (params.dontSearch) {
+            model.put('entityInstanceList', entity.list())
+        }
+        render(template: "form", layout: "ajax", model: model, offset: offset)
+    }
+
+    def afterInvalido( entityInstance, model ){}
+
+    def afterSave(entityInstance,model){}
 }
