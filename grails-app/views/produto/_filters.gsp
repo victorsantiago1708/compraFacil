@@ -5,7 +5,10 @@
         </h1>
     </div>
     <div class="col s3 center-align">
-        <a style="margin-top:25%;" class="waves-effect waves-light btn blue lighten-1" href="${createLink(controller: 'produto', action: 'novo')}"><g:message code="default.novo.label"/></a>
+        <a style="margin-top:25%;" class="waves-effect waves-light btn red" href="#" onclick="novo('${createLink(controller: 'produto', action: 'novo')}')">
+            <i class="fa fa-file"></i>
+            <g:message code="default.novo.label"/>
+        </a>
     </div>
 </div>
 <g:form name="myForm" url="[action:'list',controller:'produto']" class="col s12">

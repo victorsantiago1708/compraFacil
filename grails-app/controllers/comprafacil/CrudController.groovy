@@ -20,7 +20,7 @@ class CrudController{
     }
 
     def list(){
-        def model = beforeList()
+        def model = beforeList()?:[:]
         if(entity){
             def result = entity.createCriteria().list(query)
             def entityList = result
@@ -63,9 +63,7 @@ class CrudController{
         return model
     }
 
-    def beforeList (){
-
-    }
+    def beforeList (){}
 
     def novo() {
         flash.clear()
@@ -89,6 +87,8 @@ class CrudController{
         render(template: "form", layout: "ajax", model: model )
     }
 
+    def beforeSave(def entityInstance, def model){}
+
     def delete(){
         def entityInstance = getEntityInstance()
         try {
@@ -102,7 +102,7 @@ class CrudController{
     }
 
     def save() {
-        flash.clear();
+        flash.clear()
         def model = [:]
         def entityInstance
         boolean edit = params.id ? true:false

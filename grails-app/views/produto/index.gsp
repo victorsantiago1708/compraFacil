@@ -4,10 +4,9 @@
  </head>
 <body>
 <g:render template="/layouts/menuTopo"/>
-<div class="container">
+<div class="container" id="conteudo">
     <g:render template="grid"/>
-    <asset:javascript src="produto/produto.js"/>
 </div>
-
+<asset:javascript src="produto/produto.js"/>
 </body>
 </html>
