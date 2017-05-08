@@ -1,5 +1,7 @@
 package comprafacil
 
+import grails.plugin.springsecurity.SpringSecurityService
+import grails.plugin.springsecurity.SpringSecurityUtils
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
@@ -20,6 +22,18 @@ class Usuario implements Serializable {
 
 	Set<Role> getAuthorities() {
 		UsuarioRole.findAllByUsuario(this)*.role
+	}
+
+	static Boolean hasAcesso(Role role){
+		Boolean result = false
+		List rolesDoUsuario = SpringSecurityUtils.getPrincipalAuthorities()
+		rolesDoUsuario?.each{
+			String roleUser = it.toString()
+			if(roleUser == role.authority){
+				result = true
+			}
+		}
+		return result
 	}
 
 	def beforeInsert() {

@@ -1,4 +1,4 @@
-<g:render template="/layouts/msg"/>
+%{--verificar erros nos campos exp: ${entityInstance?.errors?.hasFieldErrors('descricao') --}%
 <form onsubmit="save('${createLink(controller: 'produto', action: 'save')}', this)" method="POST">
     <div class="row nopad" style="border-bottom: 1px solid #ccc;">
         <div class="col s6">
@@ -16,22 +16,22 @@
     </div>
     <div class="row nopad">
         <div class="input-field col s3">
-            <input id="nome" name="nome" type="text" >
+            <input id="nome" name="nome" type="text" value="${entityInstance?.nome}">
             <label for="nome"><g:message code="produto.nome.label"/> </label>
         </div>
         <div class="input-field col s3">
-            <input id="codigo" name="codigo" type="text" >
+            <input id="codigo" name="codigo" type="text" value="${entityInstance?.codigo}">
             <label for="nome"><g:message code="produto.codigo.label"/> </label>
         </div>
         <div class="input-field col s3">
-            <input id="descricao" name="descricao" type="text" >
+            <input id="descricao" name="descricao" type="text" value="${entityInstance?.descricao}">
             <label for="descricao"><g:message code="produto.descricao.label"/> </label>
         </div>
         <div class="input-field col s3">
             <select name="fabricante" id="fabricante" class="icons">
                 <option value="" disabled selected><g:message code="default.selecione.label"/></option>
                 <g:each in="${fabricantes}" var="fabricante">
-                    <option value="${fabricante?.id}" data-icon="images/sample-1.jpg" class="circle">${fabricante?.nome}</option>
+                    <option value="${fabricante?.id}" ${(entityInstance?.fabricante?.id == fabricante?.id)?'selected':''} data-icon="images/sample-1.jpg" class="circle">${fabricante?.nome}</option>
                 </g:each>
             </select>
             <label><g:message code="produto.fabricante.label"/> </label>
