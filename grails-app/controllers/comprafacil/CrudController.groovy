@@ -1,10 +1,10 @@
 package comprafacil
 
 import grails.plugin.springsecurity.SpringSecurityService
-import org.h2.mvstore.db.TransactionStore
 
-class CrudController {
+class CrudController{
     SpringSecurityService springSecurityService
+    CrudService crudService
 
     def index(){
         list()
@@ -14,7 +14,8 @@ class CrudController {
         if(params.id){
             return entity.get( params.id )
         }else{
-            return entity.newInstance()
+            def entityInstance = entity.newInstance(params)
+            return entityInstance
         }
     }
 
@@ -82,19 +83,35 @@ class CrudController {
         render view: "form", model: model
     }
 
+    def delete(){
+        def entityInstance = getEntityInstance()
+        try {
+            entityInstance.delete(flush: true)
+            println("teste")
+            flash.message = message(code:'default.deleteSuccess.message')
+        }catch (Exception e){
+            flash.message = message(code:'default.cantDelete.message')
+        }
+        redirect(controller: entity, action: "list")
+    }
+
     def save(){
         def entityInstance = getEntityInstance()
         def model = [:]
 
-        if(entityInstance.validate() && entityInstance.getErrorCount() == 0){
-            entityInstance.save(failOnError: true)
-        }else{
+        try {
+            if(entityInstance.validate()){
+                if(entityInstance.save(failOnError: true, flush:true)){
+                    flash.message = message(code: 'default.saveSuccess.message')
+                }
+            }else{
+                flash.message = message(code: 'default.cantSave.message')
+                println("error")
+            }
+        }catch (Exception e){
             flash.message = message(code: 'default.cantSave.message')
-            println("error")
         }
 
-        model.put('entityInstance', entity.newInstance())
-        model = editaModelDoSave(model)
-        render view: "form", model: model
+        redirect(controller: entity, action: "novo")
     }
 }

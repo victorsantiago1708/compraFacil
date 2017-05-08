@@ -26,16 +26,25 @@
                     </button>
                 </div>
             </div>
+            <div class="row nopad ${flash?.message?'':'hide'}">
+                <div class="col s12 center-align" style="padding:10px; border-radius: 2px; border: 1px solid #0063ff;background: #c2c2ea; color:black">
+                    ${flash?.message}
+                </div>
+            </div>
             <div class="row nopad">
                 <div class="input-field col s3">
                     <input id="nome" name="nome" type="text" >
                     <label for="nome"><g:message code="produto.nome.label"/> </label>
                 </div>
                 <div class="input-field col s3">
+                    <input id="codigo" name="codigo" type="text" >
+                    <label for="nome"><g:message code="produto.codigo.label"/> </label>
+                </div>
+                <div class="input-field col s3">
                     <input id="descricao" name="descricao" type="text" >
                     <label for="descricao"><g:message code="produto.descricao.label"/> </label>
                 </div>
-                <div class="input-field col s3 m3">
+                <div class="input-field col s3">
                     <select name="fabricante" id="fabricante" class="icons">
                         <option value="" disabled selected><g:message code="default.selecione.label"/></option>
                         <g:each in="${fabricantes}" var="fabricante">
