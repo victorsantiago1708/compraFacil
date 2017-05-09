@@ -17,6 +17,10 @@
 </head>
 <body>
     <g:layoutBody/>
+    <div class="container" style="min-height: 100%">
+
+    </div>
+
     <div class="load center" style="display: none">
         <div class="preloader-wrapper big active">
             <div class="spinner-layer spinner-blue-only">
@@ -24,12 +28,14 @@
                     <div class="circle"></div>
                 </div><div class="gap-patch">
                 <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
             </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
             </div>
         </div>
     </div>
+
     <input type="hidden" id="erroSwall" value="${message(code:'default.swall.error.label')}"/>
     <asset:javascript src="application.js"/>
     <asset:javascript src="sweetalert-master/dist/sweetalert-dev.js"/>
@@ -40,5 +46,6 @@
             $(".button-collapse").sideNav();
         });
     </script>
+    <g:render template="/layouts/footer"/>
 </body>
 </html>

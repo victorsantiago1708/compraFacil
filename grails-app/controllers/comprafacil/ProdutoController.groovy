@@ -14,6 +14,7 @@ class ProdutoController extends CrudController{
         }
     }
 
+    @Override
     def beforeList () {
         def model=[:]
         List<Fabricante> fabricantes = Fabricante.findAll()
@@ -22,16 +23,21 @@ class ProdutoController extends CrudController{
         return model
     }
 
-    def editaModelDoSave( def model ){
+    @Override
+    def editaModelPadrao( def model ){
         List<Fabricante> fabricantes = Fabricante.findAll()
         model.put("fabricantes",fabricantes)
-        model = editaModelPadrao(model)
         return model
     }
 
+    @Override
+    def editaModelDoSave( def model ){
+        model = editaModelDoNovo(model)
+        return model
+    }
+
+    @Override
     def editaModelDoNovo( def model ){
-        List<Fabricante> fabricantes = Fabricante.findAll()
-        model.put("fabricantes",fabricantes)
         model = editaModelPadrao(model)
         return model
     }

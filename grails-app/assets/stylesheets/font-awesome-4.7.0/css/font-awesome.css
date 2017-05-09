@@ -28,6 +28,7 @@
 .fa-2x {
   font-size: 2em;
 }
+
 .fa-3x {
   font-size: 3em;
 }
@@ -2334,4 +2335,8 @@
   margin: 0;
   overflow: visible;
   clip: auto;
+}
+
+.fa-1x {
+  font-size: 1.1em!important;
 }

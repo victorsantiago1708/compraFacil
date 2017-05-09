@@ -6,8 +6,8 @@
     </div>
     <div class="col s3 center-align">
         <a style="margin-top:25%;" class="waves-effect waves-light btn red" href="#" onclick="novo('${createLink(controller: 'produto', action: 'novo')}')">
-            <i class="fa fa-file"></i>
             <g:message code="default.novo.label"/>
+            <i class="fa fa-file fa-1x"></i>
         </a>
     </div>
 </div>
@@ -32,8 +32,9 @@
         </div>
         <div class="col s3">
             <label class="labelSpace"> &nbsp; </label>
-            <button class="btn waves-effect waves-light blue lighten-1" type="submit" name="action">Pesquisar
-                <i class="material-icons right">search</i>
+            <button class="btn waves-effect waves-light blue lighten-1" type="submit" name="action">
+                <g:message code="default.pesquisar.label"/>
+                <i class="fa fa-search fa-1x"></i>
             </button>
         </div>
     </div>

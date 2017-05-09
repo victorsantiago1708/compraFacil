@@ -14,7 +14,8 @@ class CrudController{
         if(params.id){
             return entity.get( params.id )
         }else{
-            def entityInstance = entity.newInstance(params)
+            def entityInstance = entity.newInstance()
+            entityInstance.properties = params
             return entityInstance
         }
     }
@@ -103,16 +104,13 @@ class CrudController{
 
         if( edit && entityInstance.hasProperty( 'isEditavel' ) && entityInstance.isEditavel == false )
         {
-            println("teste 99")
             flash.error = message( code: 'default.dont.edit.message' )
         }
         else
         {
-            println("teste 88")
             beforeSave( entityInstance, model )
             if( entityInstance.errors.getErrorCount() < 1 && entityInstance.validate() )
             {
-                println("teste 100")
                 if (entityInstance.save(flush: true)) {
                     afterSave(entityInstance, model)
                     if(edit){
@@ -121,12 +119,9 @@ class CrudController{
                         flash.message = message(code: 'default.created.message')
                     }
                 }else{
-                    println("Teste")
                     if(edit){
-                        println("teste 1")
                         flash.error = message(code: 'default.dont.updated.message')
                     }else{
-                        println("teste 2")
                         flash.error = message(code: 'default.dont.created.message')
                     }
                 }
@@ -135,13 +130,8 @@ class CrudController{
                 afterInvalido( entityInstance, model )
             }
         }
-       // flash.error = "TESTE"
-        println entityInstance.errors
-        println(model)
 
         model = editaModelDoSave( model )
-
-        println(model)
 
         returnSave( edit, editPai, entityInstance, model)
     }
